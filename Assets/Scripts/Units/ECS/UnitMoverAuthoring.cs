@@ -2,16 +2,16 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Citizen
+namespace Units
 {
-    public class MovementSpeedAuthoring : MonoBehaviour
+    public class UnitMoverAuthoring : MonoBehaviour
     {
         public float Speed;
         public float RotationSpeed = 10f;
 
-        public class BakerComponent : Baker<MovementSpeedAuthoring>
+        public class BakerComponent : Baker<UnitMoverAuthoring>
         {
-            public override void Bake(MovementSpeedAuthoring authoring)
+            public override void Bake(UnitMoverAuthoring authoring)
             {
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
                 AddComponent(entity, new UnitMoverComponent

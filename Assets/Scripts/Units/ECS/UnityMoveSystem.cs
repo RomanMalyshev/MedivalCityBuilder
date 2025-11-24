@@ -1,4 +1,4 @@
-using Citizen;
+using Units;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -10,17 +10,17 @@ partial struct UnityMoveSystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        UnitMoverJon job = new UnitMoverJon { DeltaTime = SystemAPI.Time.DeltaTime };
+        UnitMoverJob job = new UnitMoverJob { DeltaTime = SystemAPI.Time.DeltaTime };
         job.ScheduleParallel();
     }
 }
 
 [BurstCompile]
-public partial struct UnitMoverJon : IJobEntity
+public partial struct UnitMoverJob : IJobEntity
 {
     public float DeltaTime;
     
-    public void Execute(ref LocalTransform localTransform,in UnitMoverComponent unitMover)
+    private void Execute(ref LocalTransform localTransform,in UnitMoverComponent unitMover)
     {
         float3 direction = unitMover.TargetPosition - localTransform.Position;
         direction = math.normalize(direction);
