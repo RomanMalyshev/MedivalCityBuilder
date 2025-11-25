@@ -1,3 +1,4 @@
+using Units.ECS;
 using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
@@ -6,7 +7,6 @@ namespace Units
 {
     public class UnitTargetPosition : MonoBehaviour
     {
-    
         private void Update()
         {
             if (Input.GetMouseButtonDown(1))
@@ -16,6 +16,11 @@ namespace Units
                 EntityManager entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
                 EntityQuery query = new EntityQueryBuilder(Allocator.Temp).WithAll<UnitMoverComponent, Selected>().Build(entityManager);
 
+                if (query.IsEmpty)
+                {
+                    query = new EntityQueryBuilder(Allocator.Temp).WithAll<Selected>().WithDisabled<UnitMoverComponent>().Build(entityManager);
+                }
+
                 NativeArray<Entity> entityArray = query.ToEntityArray(Allocator.Temp);
                 NativeArray<UnitMoverComponent> unitMoverArray = query.ToComponentDataArray<UnitMoverComponent>(Allocator.Temp);
 
@@ -24,10 +29,11 @@ namespace Units
                     UnitMoverComponent unitMover = unitMoverArray[i];
                     unitMover.TargetPosition = position;
                     entityManager.SetComponentData(entityArray[i], unitMover);
+                    entityManager.SetComponentEnabled<UnitMoverComponent>(entityArray[i], true);
                 }
             }
         }
-    
+
         private Vector3 GetMousePosition()
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);

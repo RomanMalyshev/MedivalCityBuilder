@@ -2,7 +2,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Units
+namespace Units.ECS
 {
     public class UnitMoverAuthoring : MonoBehaviour
     {
@@ -19,12 +19,14 @@ namespace Units
                     MoveSpeed = authoring.Speed,
                     RotationSpeed = authoring.RotationSpeed,
                     OffsetPosition = authoring.transform.position,
+                    
                 });
+                SetComponentEnabled<UnitMoverComponent>(entity,false);
             }
         }
     }
     
-    public struct UnitMoverComponent : IComponentData
+    public struct UnitMoverComponent : IComponentData, IEnableableComponent
     {
         public float MoveSpeed;
         public float RotationSpeed;

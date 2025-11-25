@@ -1,8 +1,7 @@
 using Unity.Entities;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Units
+namespace Units.ECS
 {
     public class SelectedAuthoring : MonoBehaviour
     {

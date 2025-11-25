@@ -1,3 +1,4 @@
+using Units.ECS;
 using Unity.Entities;
 using Unity.Physics;
 using UnityEngine;
@@ -7,6 +8,8 @@ namespace Units
     public class UnitSelector : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
+        [SerializeField] private Canvas _canvas;
+        [SerializeField] private RectTransform _visualSelector;
         [SerializeField] private LayerMask _unitLayer;
 
         private EntityManager _entityManager;
