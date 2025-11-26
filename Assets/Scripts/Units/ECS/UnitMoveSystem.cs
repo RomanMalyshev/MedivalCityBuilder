@@ -5,6 +5,8 @@ using Unity.Transforms;
 
 namespace Units.ECS
 {
+    
+    [UpdateBefore(typeof(TransformSystemGroup))]
     partial struct UnitMoveSystem : ISystem
     {
         [BurstCompile]
@@ -18,7 +20,7 @@ namespace Units.ECS
     [BurstCompile]
     public partial struct UnitMoverJob : IJobEntity
     {
-    
+        
         public float DeltaTime;
     
         private void Execute(ref LocalTransform localTransform,in UnitMoverComponent unitMover)
