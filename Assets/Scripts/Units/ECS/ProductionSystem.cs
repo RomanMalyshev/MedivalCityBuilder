@@ -17,15 +17,46 @@ namespace Units.ECS
                          DynamicBuffer<InventoryItem>,
                          DynamicBuffer<ProductionItemRecipe>>())
             {
+                //recipe logic
+                bool hasEnoughResources = true;
                 if (recipe.Length > 0)
                 {
-                    //recipe logic
+                    for (int i = 0; i < recipe.Length; i++)
+                    {
+                        hasEnoughResources = false;
+                        for (int j = 0; j < inventory.Length; j++)
+                        {
+                            if (inventory[j].ItemType == recipe[i].ItemType)
+                            {
+                                if (inventory[j].Amount >= recipe[i].Amount)
+                                {
+                                    hasEnoughResources = true;
+                                }
+                                break;
+                            }
+                        }
+                    }
                 }
 
+                if (!hasEnoughResources) continue;
+                
                 production.ValueRW.TimeToProduce += SystemAPI.Time.DeltaTime;
 
-                if (!(production.ValueRO.TimeToProduce >= production.ValueRO.TickTime)) continue;
-                
+                if (production.ValueRO.TimeToProduce < production.ValueRO.TickTime) continue;
+
+                //Take
+                for (int i = 0; i < recipe.Length; i++)
+                {
+                    for (int j = 0; j < inventory.Length; j++)
+                    {
+                        if (inventory[j].ItemType != recipe[i].ItemType) continue;
+
+                        ref var item = ref inventory.ElementAt(j);
+                        item.Amount -= recipe[i].Amount;
+                    }
+                }
+
+                //Add
                 production.ValueRW.TimeToProduce = 0;
                 bool hasResource = false;
                 for (var i = 0; i < inventory.Length; i++)
@@ -33,7 +64,7 @@ namespace Units.ECS
                     ref var item = ref inventory.ElementAt(i);
 
                     if (item.ItemType != production.ValueRO.ProducedItemType) continue;
-                        
+
                     item.Amount += production.ValueRO.ProducedAmountPerTick;
                     hasResource = true;
                     break;

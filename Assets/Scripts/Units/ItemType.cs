@@ -3,7 +3,8 @@
     public enum ItemType : byte
     {
         None,
+        Food,
         Wood,
-        Grain
+        Plank
     }
 }

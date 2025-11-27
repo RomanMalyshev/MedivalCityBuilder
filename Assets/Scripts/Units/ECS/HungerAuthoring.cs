@@ -11,7 +11,7 @@ namespace Units.ECS
         {
             public override void Bake(HungerAuthoring authoring)
             {
-                var entity = GetEntity(TransformUsageFlags.Dynamic);
+                var entity = GetEntity(TransformUsageFlags.None);
                 AddComponent(entity, new Hunger
                 {
                     VisualHunger = GetEntity(authoring.VisualHunger, TransformUsageFlags.Dynamic),

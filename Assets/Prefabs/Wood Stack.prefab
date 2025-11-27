@@ -49,8 +49,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9072964448506083784}
   - component: {fileID: 5059832682372718182}
-  - component: {fileID: 2012955796683679255}
   - component: {fileID: 7033292114187749602}
+  - component: {fileID: 2012955796683679255}
   m_Layer: 6
   m_Name: Wood Stack
   m_TagString: Untagged
@@ -90,6 +90,22 @@ MonoBehaviour:
   VisualSelector: {fileID: 3514440722128457909}
   EnableScale: 1
   ScaleSpeed: 14
+--- !u!114 &7033292114187749602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095481812257980820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881856e3f0f7dd144b55b6be29aaf159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Units.ECS.InventoryAuthoring
+  InventoryCapacity: 1
+  Items:
+  - ItemType: 1
+    Amount: 10
 --- !u!65 &2012955796683679255
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -111,22 +127,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.769434, y: 1.0290352, z: 1.5952216}
   m_Center: {x: 0.384717, y: 0.31938756, z: 0.0072589517}
---- !u!114 &7033292114187749602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9095481812257980820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 881856e3f0f7dd144b55b6be29aaf159, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Units.ECS.InventoryAuthoring
-  InventoryCapacity: 1
-  Items:
-  - ItemType: 1
-    Amount: 10
 --- !u!1001 &22457844775843517
 PrefabInstance:
   m_ObjectHideFlags: 0

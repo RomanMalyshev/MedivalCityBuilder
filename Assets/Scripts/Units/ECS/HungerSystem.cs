@@ -30,9 +30,8 @@ namespace Units.ECS
             {
                 for (int i = 0; i < inventory.Length; i++)
                 {
-                    var inventoryItems = inventory;
-                    var item = inventoryItems[i];
-                    if (item.ItemType == ItemType.Grain && item.Amount > 0)
+                    ref var item = ref inventory.ElementAt(i); 
+                    if (item.ItemType == ItemType.Food && item.Amount > 0)
                     {
                         item.Amount--;
                         if (item.Amount == 0)
@@ -40,7 +39,6 @@ namespace Units.ECS
                             item.ItemType = ItemType.None;
                         }
 
-                        inventoryItems[i] = item;
                         hunger.ValueRW.LastTimeEaten = 0;
                         ecb.SetComponentEnabled<Hunger>(entity, false);
                         break;

@@ -8,13 +8,13 @@ namespace Units.ECS
     public class InventoryAuthoring : MonoBehaviour
     {
         public int InventoryCapacity = 10;
-        public List<InventoryItemEditor> Items;
+        public List<ItemAmount> Items;
 
         public class Baker : Baker<InventoryAuthoring>
         {
             public override void Bake(InventoryAuthoring authoring)
             {
-                var entity = GetEntity(TransformUsageFlags.Dynamic);
+                var entity = GetEntity(TransformUsageFlags.None);
                 DynamicBuffer<InventoryItem> inventoryBuffer = AddBuffer<InventoryItem>(entity);
 
                 for (int i = 0; i < authoring.InventoryCapacity; i++)
@@ -41,13 +41,13 @@ namespace Units.ECS
                 });
             }
         }
-
-        [Serializable]
-        public class InventoryItemEditor
-        {
-            public ItemType ItemType;
-            public int Amount;
-        }
+    }
+    
+    [Serializable]
+    public class ItemAmount
+    {
+        public ItemType ItemType;
+        public int Amount;
     }
 
     public struct Inventory : IComponentData

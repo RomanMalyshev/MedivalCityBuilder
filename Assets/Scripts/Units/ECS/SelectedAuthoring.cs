@@ -13,7 +13,7 @@ namespace Units.ECS
         {
             public override void Bake(SelectedAuthoring authoring)
             {
-                var entity = GetEntity(TransformUsageFlags.Dynamic);
+                var entity = GetEntity(TransformUsageFlags.Renderable);
                 AddComponent(entity, new Selected
                 {
                     VisualSelector = GetEntity(authoring.VisualSelector.gameObject, TransformUsageFlags.Dynamic) ,
