@@ -128,6 +128,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 05035b78d90b21f43854dfe010ccd289, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7405113819968259372}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 05035b78d90b21f43854dfe010ccd289, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4388454075776231684}
   m_SourcePrefab: {fileID: 100100000, guid: 05035b78d90b21f43854dfe010ccd289, type: 3}
 --- !u!1 &7470021326590341952 stripped
 GameObject:
@@ -170,6 +173,19 @@ MonoBehaviour:
   VisualSelector: {fileID: 3864396199764392521}
   EnableScale: 2
   ScaleSpeed: 14
+--- !u!114 &4388454075776231684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7470021326590341952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd4e66b3c21f415995d9ececfff72d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Units.ECS.HouseAuthoring
+  HouseCapacity: 2
 --- !u!4 &7470021326590570336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 05035b78d90b21f43854dfe010ccd289, type: 3}

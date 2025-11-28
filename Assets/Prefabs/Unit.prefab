@@ -221,6 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1614610106051533160}
+  - component: {fileID: 4737568608763198009}
   - component: {fileID: 7439820190692050649}
   - component: {fileID: 3708197736065187144}
   - component: {fileID: 8734748341282422576}
@@ -252,6 +253,18 @@ Transform:
   - {fileID: 2138276867567738494}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4737568608763198009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604434790759870328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57257077eb6b4d92b6d7c57d9646d5bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Units.ECS.CitizenAuthoring
 --- !u!114 &7439820190692050649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf507b9e9f248b29f592f5de46a9a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Units.ECS.CitizenBehaviourAuthoring
-  InitialActivity: 0
+  InitialCitizenActivity: 0
 --- !u!1 &5523614643595548755
 GameObject:
   m_ObjectHideFlags: 0
